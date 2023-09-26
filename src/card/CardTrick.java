@@ -6,7 +6,6 @@ package card;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
@@ -29,38 +28,18 @@ public class CardTrick {
             c.setSuit(Card.SUITS[(rand.nextInt(4))]);
             magicHand[i] = c;
         }
-        
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        Card guess = new Card();
-        System.out.println("Pick a card, any card:");
 
-        Scanner stdin  = new Scanner(System.in);
-        System.out.print("Select a suit (Hearts, Diamonds, Spades, Clubs): ");
-        guess.setSuit(stdin.nextLine());
-        while (!Arrays.asList(Card.SUITS).contains(guess.getSuit())) {
-            System.out.print("Not a valid suit. Try again: ");
-            guess.setSuit(stdin.nextLine());
-        }
-
-        System.out.print("Select a value (1-13): ");
-        guess.setValue(stdin.nextInt()); 
-        while (guess.getValue() < 1 || guess.getValue() > 13) {
-            System.out.print("Not a valid value. Try again: ");
-            guess.setValue(stdin.nextInt()); 
-        }
-        stdin.close();
-
-        //Then report the result here
-        if (Arrays.asList(magicHand).contains(guess)) {
-            System.out.println("Your card was in the magic hand!");
-        } else {
-            System.out.println("Your card was not in the magic hand!");
-        }
         // add one luckcard hard code 2,clubs
         Card luckyCard = new Card();
         luckyCard.setValue(11);
         luckyCard.setSuit("Spades");
+
+        if (Arrays.asList(magicHand).contains(luckyCard)) {
+            System.out.println("The lucky card was in the magic hand!");
+        } else {
+            System.out.println("The lucky card was not in the magic hand!");
+        }
+
     }
     
 }
