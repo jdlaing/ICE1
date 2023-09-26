@@ -58,6 +58,9 @@ public class CardTrick {
             System.out.println("Your card was not in the magic hand!");
         }
         // add one luckcard hard code 2,clubs
+        Card luckyCard = new Card();
+        luckyCard.setValue(11);
+        luckyCard.setSuit("Spades");
     }
     
 }
